@@ -25,7 +25,7 @@ class DropboxPython_Scott:
 		self.writeArray = ["", "", "", ""]
 
 	def setup(self):
-		print "If this is the first time you are opening this console-based application, please download this file and place it into a /foodtracking directory of your Dropbox folder: http://depositfiles.com/files/tcvx2y5yt."
+		print "If this is the first time you are opening this console-based application, please download this file and place it into a /foodtracking directory under the Dropbox root directory: http://depositfiles.com/files/tcvx2y5yt."
 
 		self.app_key = 'kdn7k7jndg4l9hf'
 		self.app_secret = '8rcriv7n18ss2zu'
