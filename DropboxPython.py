@@ -1,9 +1,10 @@
-import web
-from web import form
-web.config.debug = False
+#import web
+#from web importori#m
+#import easygui
+#web.config.debug = False
+#import easygui
 import csv
 import dropbox
-import easygui
 import time
 import webbrowser
 
@@ -24,10 +25,10 @@ class DropboxPython_Scott:
 		self.writeArray = ["", "", "", ""]
 
 	def setup(self):
-		print "If this is the first time you are opening this console-based application, please download this file and place it into the root directory of your Dropbox folder: http://depositfiles.com/files/tcvx2y5yt."
+		print "If this is the first time you are opening this console-based application, please download this file and place it into a /foodtracking directory under the Dropbox root directory: http://depositfiles.com/files/tcvx2y5yt."
 
-		self.app_key = 'kdn7k7jndg4l9hf'
-		self.app_secret = '8rcriv7n18ss2zu'
+		self.app_key = '6y9vlpl91xywoth'
+		self.app_secret = 'rrur7ewrmoin4d6'
 
 		self.session = dropbox.session.DropboxSession(self.app_key, self.app_secret, "dropbox")
 		self.client = dropbox.client.DropboxClient(self.session)
@@ -63,7 +64,7 @@ class DropboxPython_Scott:
 	
 	# Downloading, amending, uploading file
 	def download_and_upload_db(self):
-		self.downloaddb('newcsv.csv')
+		self.downloaddb('myFoodExpenses.csv')
 		
 		date = raw_input("1. Enter date on which meal was consumed (mm/dd/yyyy): ")
 		mealtype = raw_input("2. Enter meal data in order, according to the following hierarchy (L = Lunch / D = Dinner / M = Miscellaneous): ")
@@ -77,7 +78,7 @@ class DropboxPython_Scott:
 			print "invalid input. Try running the program again."
 		print ""		
 
-        	with open('newcsv.csv', 'r') as fp1:
+        	with open('myFoodExpenses.csv', 'r') as fp1:
                 	firstlinebegin = fp1.readline()
                 	lineresponsebegin = fp1.readlines()
         	fp1.close()
@@ -119,11 +120,11 @@ class DropboxPython_Scott:
 
         	CSVrows = map(None, datelist, lunchlist, dinnerlist, misclist)
             
-		with open('newcsv.csv', 'wb') as fp2:
+		with open('myFoodExpenses.csv', 'wb') as fp2:
         		writer = csv.writer(fp2)
             		writer.writerow(['Date', 'Lunch', 'Dinner', 'Miscellaneous'])
             		for j in CSVrows:
                 		writer.writerow(j)
 		fp2.close()			
 
-		self.uploaddb('newcsv.csv')
+		self.uploaddb('myFoodExpenses.csv')
